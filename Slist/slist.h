@@ -76,8 +76,7 @@ Node* Slist :: getNode(int item){
 }
 
 void Slist :: add(int item, int position) {
-
-    if(position > size){
+    if(position > size && position < 0){
         cout<<"\nInvalid position!\nPosition should not be less that zero or greater than the size of the list."<<endl;
         return;
     }
@@ -95,14 +94,11 @@ void Slist :: add(int item, int position) {
         nn->link = pn->link;
         pn->link = nn;
     }
-
     cout<<"\n"<<item<<" is inserted."<<endl;
     size++;
-
 }
 
 void Slist :: remove(int item) {
-
     if(!HEAD) {
         cout<<"\nThe list is empty!"<<endl;
         return;
@@ -131,14 +127,14 @@ void Slist :: remove(int item) {
 }
 
 int Slist :: search(int searchKey) {
-    int loc = 1;
+    int count = 1;
     Node *sn = HEAD;        
     while(sn && sn->item != searchKey){
         sn = sn->link;
-        loc++;
+        count++;
     }
-    if(sn)
-        return loc;
+    if(sn) //if Search us success, sn is not null
+        return count;//SearchKey is found at position count
     return 0;
 }
 
