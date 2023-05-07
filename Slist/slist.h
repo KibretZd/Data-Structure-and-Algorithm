@@ -132,14 +132,13 @@ void Slist :: remove(int item) {
 
 int Slist :: search(int searchKey) {
     int loc = 1;
-    if(HEAD){
-        Node *sn = HEAD;        
-        while(sn && sn->item != searchKey){
-            sn = sn->link;
-            loc++;
-        }
-        return loc;
+    Node *sn = HEAD;        
+    while(sn && sn->item != searchKey){
+        sn = sn->link;
+        loc++;
     }
+    if(sn)
+        return loc;
     return 0;
 }
 
