@@ -1,12 +1,8 @@
 //Linked list implementaion of stack Data structure
-
 struct Node
 {
-    int data;
-    Node *next;
-    Node() {
-        next = NULL;
-    }
+    int data;   //Item to be stored
+    Node *next; //Stores address of a node
 };
 
 class StackLinked
@@ -15,13 +11,13 @@ private:
     Node *top;  //To store address of the top node from the stack
     int count; //To count the number of nodes added to the list
 public:
-    StackLinked();
-    ~StackLinked();
-    void push(int x);
-    void pop();
-    void getTop();
-    int size();
-    void traverse();
+    StackLinked();      //Constructor
+    ~StackLinked();     //Destructor
+    void push(int x);   //Inserts x into the stack
+    void pop();         //Deletes the top element from the stack.
+    void getTop();      //Prints the top element
+    int size();         //returns the number of items in the stack
+    void traverse();    //Prints all the elements available in the stack
 };
 
 StackLinked::StackLinked()
@@ -46,6 +42,7 @@ void StackLinked :: push(int x)
     nn->next = top;
     top = nn;
     count++;
+    cout<<"\n"<<x<<" is pushed to the stack."<<endl;
 }
 void StackLinked :: pop()
 {
